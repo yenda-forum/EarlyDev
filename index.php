@@ -9,7 +9,9 @@ require 'lib/smarty/libs/Smarty.class.php';
 
 $smarty = new Smarty;
 
-$smarty->setTemplateDir('customizations/templates/');
+$theme = 'Bootstrap3';
+
+$smarty->setTemplateDir('customizations/'.$theme.'/templates/');
 $smarty->setCompileDir('lib/smarty/templates_c/');
 $smarty->setConfigDir('lib/smarty/configs/');
 $smarty->setCacheDir('lib/smarty/cache/');
