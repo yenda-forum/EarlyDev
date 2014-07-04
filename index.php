@@ -9,7 +9,7 @@ require 'lib/smarty/libs/Smarty.class.php';
 
 $smarty = new Smarty;
 
-$smarty->setTemplateDir('templates/');
+$smarty->setTemplateDir('customizations/templates/');
 $smarty->setCompileDir('lib/smarty/templates_c/');
 $smarty->setConfigDir('lib/smarty/configs/');
 $smarty->setCacheDir('lib/smarty/cache/');
