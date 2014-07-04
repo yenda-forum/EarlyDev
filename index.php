@@ -11,27 +11,34 @@ $smarty = new Smarty;
 
 $theme = 'Bootstrap3';
 
-$smarty->setTemplateDir('customizations/'.$theme.'/templates/');
+$smarty->setTemplateDir('customizations/templates/'.$theme.'/');
 $smarty->setCompileDir('lib/smarty/templates_c/');
 $smarty->setConfigDir('lib/smarty/configs/');
 $smarty->setCacheDir('lib/smarty/cache/');
 
 //$smarty->force_compile = true;
-$smarty->debugging = true;
+//$smarty->debugging = true;
 $smarty->caching = true;
 $smarty->cache_lifetime = 120;
+$array = array(
+                        array('id'=>"1",'name'=>"Test", 'description'=>"Testforum", 'lastPost'=>date("d.m.Y H:i", 0), 'lastPostName'=>"-/-", 'lastPostCreator'=>"-/-", 'subforums'=>
+                                array(
+                                    array(
+                                    'id'=> "2", 'name'=>"SubForum1"
+                                    )
+                                )
+                            ),
+                        array('id'=>"1",'name'=>"Test", 'description'=>"Testforum", 'lastPost'=>date("d.m.Y H:i", 0), 'lastPostName'=>"-/-", 'lastPostCreator'=>"-/-", 'subforums'=>
+                                array(
+                                    array(
+                                    'id'=> "2", 'name'=>"SubForum1"
+                                    )
+                                )
+                            )             
+                        );
 
-$smarty->assign("Name", "Fred Irving Johnathan Bradley Peppergill", true);
-$smarty->assign("FirstName", array("John", "Mary", "James", "Henry"));
-$smarty->assign("LastName", array("Doe", "Smith", "Johnson", "Case"));
-$smarty->assign("Class", array(array("A", "B", "C", "D"), array("E", "F", "G", "H"),
-                               array("I", "J", "K", "L"), array("M", "N", "O", "P")));
-
-$smarty->assign("contacts", array(array("phone" => "1", "fax" => "2", "cell" => "3"),
-                                  array("phone" => "555-4444", "fax" => "555-3333", "cell" => "760-1234")));
-
-$smarty->assign("option_values", array("NY", "NE", "KS", "IA", "OK", "TX"));
-$smarty->assign("option_output", array("New York", "Nebraska", "Kansas", "Iowa", "Oklahoma", "Texas"));
-$smarty->assign("option_selected", "NE");
+$smarty->assign('Name', "Yenda Forums");
+$smarty->assign('template_dir', 'customizations/templates/'.$theme);
+$smarty->assign('forums', $array);
 
 $smarty->display('index.tpl');
